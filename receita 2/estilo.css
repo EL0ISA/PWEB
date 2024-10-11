@@ -1,0 +1,18 @@
+p.verso{
+    color: blue;
+}
+p.mote{
+    color:red;
+}
+a:link{
+    color:pink;
+}
+a:visited{
+    color: red;
+}
+a:hover{
+    color:orange;
+}
+img{
+    border-radius:50%;
+}

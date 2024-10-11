@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trova</title>
+    <style>
+       * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center; 
+            align-items: center;   
+            height: 100vh;         
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between; 
+            flex-wrap: wrap;
+        }
+
+        .column {
+            width: 50%; 
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #FFB777;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg" width="200"/>
+
+      <h1>Uma <a href="https://g.co/kgs/SGkFyWa" target="_blank">trova</a>...</h1>
+      <p>
+          Eu só preciso de hoje<br/>      
+          Pra viver e ser feliz<br/>
+          O passado já me foge<br/>
+          E o futuro nada diz!<br/>
+      </p>
+      <p>Autor: Francisco Borges</p>
+
+      <div class="row">
+          <div class="column">
+              <table id="customers">
+                  <tr>
+                      <th>Bebida</th>
+                      <th>Preço</th>
+                  </tr>
+                  <tr>
+                      <td>Match Latte</td>
+                      <td>$100</td>
+                  </tr>
+              </table>
+          </div>
+          <div class="column">
+              <table id="customers">
+                  <tr>
+                      <th>Salgado</th>
+                      <th>Preço</th>
+                  </tr>
+                  <tr>
+                      <td>Coxinha</td>
+                      <td>$100</td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+    </div>
+</body>
+</html>

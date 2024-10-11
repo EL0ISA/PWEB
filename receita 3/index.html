@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">
+      <style>
+        #abaixo{
+            opacity: 0;
+            transition: opacity 1000ms;
+        }
+      </style>
+   </head>
+
+   <body>
+    <div id="meu amor">
+        <button id="botaoCarregar">Carregando cervejas...</button>
+    </div>            
+    <div id="abaixo">
+    </div>        
+   </body>   
+   <script>
+        function carregarDiv(){
+            let div = document.getElementById("abaixo")
+            div.innerHTML = `<h1>Guinness</h1>`
+            div.style.opacity = "1";
+        }
+        let botao = document.getElementById("botaoCarregar")
+        let nvazio = false;
+        botao.addEventListener("click", ()=>{
+            if(!nvazio){
+                carregarDiv()
+            }else{
+                let div = document.getElementById("abaixo")
+                div.style.opacity = "0"; // Aplica a opacidade para ocultar a div
+                setTimeout(() => {
+                    div.innerHTML = ``; // Limpa o conteúdo após a transição
+                }, 1000);
+            }
+            nvazio=!nvazio;
+        })
+   </script>
+</html>
