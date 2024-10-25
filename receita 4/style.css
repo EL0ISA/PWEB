@@ -1,0 +1,30 @@
+#customers {
+    border-collapse: collapse;
+    width: 50%;
+  }
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+#customers tr:nth-child(even){background-color: rgb(95, 123, 109);}
+  
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:rgb(13, 88, 50);
+    color: white;
+}
+.centralizada {
+    width: 300px;
+    padding: 2rem;
+    background-color:rgb(13, 88, 50);
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(255, 255, 255, 0.8);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-top: 2rem;  /* Espaço no topo em rem */
+    margin-bottom: 2rem; /* Espaço embaixo em rem */
+}

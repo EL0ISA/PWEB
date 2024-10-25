@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita 5 - Arrow e Callback Functions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div><a id="botaoCarregar">Carregando cervejas...</a></div>
+    <div><a id="carregarLivros">Carregando livros...</a></div>
+    <div id="meu amor"></div>
+</body>
+<script>
+    let cervejas = ["Guiness", "Desperados", "Becks"]
+    let livros = ["Harry Potter e a Pedra Filosofal", "Rastro de Sangue: Jack o Estripador", "Teto para dois"]
+    let ordenacao = false
+    let formt=false
+    const tabela=(html)=>{
+        return `<table id="customers">
+            <tr>
+                <th>Lista</th>
+            </tr>
+            
+            ${html.join("\n")}
+
+        </table>`
+    }
+    const carregarDiv=(cervs)=>{
+       let conteudo;
+        const div = document.getElementById("meu amor")
+        var objsOrd;
+        if(ordenacao){
+            objsOrd= cervs.slice().sort()
+        }else{
+            objsOrd= cervs.slice().sort(() => Math.random() - 0.5)
+        }
+        if (!formt){
+            var objsHtml= objsOrd.map(item=>`<tr> <td>${item}</td></tr>`)
+            conteudo= tabela(objsHtml)
+        }else{
+            var objsHtml= objsOrd.map(item=> `<div class="centralizada">${item}</div>`)
+            conteudo= objsHtml.join("\n")
+        }
+        
+        div.innerHTML = `
+        <a id="btOrdenado">Ordenar</a>
+        <a id="btAle">Ordenar aleatoriamente</a>
+        <a id="forDiv">Formato Div</a>
+        <a id="forTable">Formato Tabela</a>
+        ${conteudo}`
+        let botao2 = document.getElementById("btOrdenado")
+        botao2.onclick = () => {
+            if (!ordenacao) {
+                ordenacao=true
+                carregarDiv(cervs)
+            }
+        }
+        let botao3 = document.getElementById("btAle")
+        botao3.onclick = () => {
+            ordenacao=false
+            carregarDiv(cervs)
+        }
+        let botaoDiv = document.getElementById("forDiv")
+        botaoDiv.onclick = () => {
+            if (!formt) { 
+                formt = true;
+                carregarDiv(cervs);
+            }
+        }
+
+        let botaoTable = document.getElementById("forTable");
+        botaoTable.onclick = () => {
+            if (formt) { 
+                formt = false;
+                carregarDiv(cervs);
+            }
+        }
+
+    }
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", ()=>carregarDiv(cervejas))
+
+    let botao2 = document.getElementById("carregarLivros")
+    botao2.addEventListener("click", ()=>carregarDiv(livros))                 
+
+</script>
+</html>
