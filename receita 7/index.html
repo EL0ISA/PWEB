@@ -1,0 +1,87 @@
+<!-- Para a receita funcionar corretamente, abra o arquivo html com o Live Server (extensão do VS code) -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Receita 7 - Fetch</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="buttonContainer">
+        <button id="botaoCarregar">Carregando cervejas...</button>
+        <button id="btSobremessa">Carregar sobremessas</button>
+        <button id="btComidas">Carregar pratos</button>
+    </div>
+    <div id="tablesContainer">
+        <div id="cervejasDiv"></div> 
+        <div id="aleatorioDiv"></div>
+    </div>
+</body>
+<script type="module">
+        let cervejas = []
+        //cs é um array de cervejas
+
+        const carregarDiv = cs => {
+
+        const div = document.getElementById("cervejasDiv")
+        const itensHtml = cs.map( ({name,alcohol,malts}) => `<tr><td>${name}</td><td>${alcohol}</td><td>${malts}</td></tr>` ) 
+
+        div.innerHTML = `
+        <table id="customers">
+            <tr>
+                <th>Nome</th>
+                <th>Álcool</th>
+                <th>Malte</th>
+            </tr>
+            
+            <tr>
+                ${itensHtml.join("\n")}
+            </tr>
+
+        </table>`
+
+        }
+        async function carregarCervejas(){
+            try{
+                let res = await fetch("https://random-data-api.com/api/v2/beers?size=3")
+                cervejas = await res.json()
+                carregarDiv(cervejas)
+            }catch(err){
+                document.getElementById("cervejasDiv").innerHTML = "Fudeu..."
+            }
+        }
+        import { carregarTabela } from './tabela.js'
+        async function carregarSobremessa(){
+            try{
+                let res = await fetch("https://random-data-api.com/api/dessert/random_dessert?size=3")
+                let dessert= await res.json()
+                const colunas = ["Nome", "Cobertura","Sabor"]
+                const propriedades = ["variety", "topping","flavor"]
+                document.getElementById("aleatorioDiv").innerHTML=carregarTabela(dessert,colunas,propriedades)
+            }catch(err){
+                console.error("Erro:", err)
+                document.getElementById("aleatorioDiv").innerHTML="Fudeu..."
+            }
+        }
+        async function carregarComidas(){
+            try{
+                let res = await fetch("https://random-data-api.com/api/food/random_food?size=3")
+                let dessert= await res.json()
+                const colunas = ["Prato", "Ingrediente","Medida"]
+                const propriedades = ["dish", "ingredient","measurement"]
+                document.getElementById("aleatorioDiv").innerHTML=carregarTabela(dessert,colunas,propriedades)
+            }catch(err){
+                console.error("Erro:", err)
+                document.getElementById("aleatorioDiv").innerHTML="Fudeu..."
+            }
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarCervejas()) 
+
+        let botao2 = document.getElementById("btSobremessa")
+        botao2.addEventListener("click", () => carregarSobremessa())
+        
+        let botao3 = document.getElementById("btComidas")
+        botao3.addEventListener("click", () => carregarComidas())
+</script>
+</html>
