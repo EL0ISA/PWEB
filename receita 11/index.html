@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita 11 - React #2/Classes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+    <script type="text/babel">
+        class TabelaBebidas extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <h1>{this.props.titulo}</h1>
+                        <table id="tabela" border="1">
+                            <thead>
+                                <tr><th>Nome</th><th>Marca</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                )
+            }
+        }
+        class HorarioFunc extends React.Component{
+            render(){
+                return(
+                    <div class="horario">
+                        <h2>Horário de Funcionamento</h2>
+                        <ul>
+                            <li>Segunda a Sexta: 8h - 18h</li>
+                            <li>Sábado: 9h - 14h</li>
+                            <li>Domingo: Fechado</li>
+                        </ul>
+                    </div>
+                )
+            }
+        }
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <TabelaBebidas titulo="Tabela de Cana"/>
+                        <HorarioFunc/>
+                    </div>
+                );
+            }
+        }
+        const TabelaBebidas__ =()=>{
+            return (
+                <div>
+                    <h1>Tabela de Bebidas</h1>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                        </tbody>
+                    </table> 
+                </div>
+            )
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById("app"))
+    </script>
+</body>
+</html>

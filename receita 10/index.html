@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita 10 - React #1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+    </div>
+    <div id="tabela"></div>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+    <script type="text/babel">
+        const frutas = [
+            { nome: "Cereja", cor: "Vermelha", quantidade: 10 },
+            { nome: "Manga", cor: "Amarela", quantidade: 15 },
+            { nome: "Laranja", cor: "Laranja", quantidade: 8 },
+            { nome: "Uva", cor: "Roxa", quantidade: 20 },
+            { nome: "Mirtilo", cor: "Azul", quantidade: 18 },
+            { nome: "Pêssego", cor: "Rosa", quantidade: 5},
+            { nome: "Melancia", cor: "Verde com vermelho", quantidade: 5},
+        ]
+        function TabelaBebidas() {
+            return (
+                <div id="app" class="container mt-5">
+                <table id="tabela" border="1" class="table table-sm table-red table-hover table-bordered">
+                    <thead>
+                        <tr><th>Nome</th><th>Marca</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            )
+        }
+        function Cabecalho() {
+            return <h1>Minha Tabela de Bebidas</h1>
+        }
+        function TabelaFrutas() {
+            const colunas = ["Nome", "Cor","Quantidade"]
+            const propriedades = ["nome", "cor","quantidade"]
+            return(
+                <div class="container mt-5">
+                    <h1>Tabela de Frutas</h1>
+                    <table id="tabela" border="1" class="table table-sm custom-green-mint table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                {colunas.map((col, ind)=>(<th key={ind}>{col}</th>))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {frutas.map((item,ind)=>(
+                                <tr key={ind}>{propriedades.map((pro,indx)=>(<td key={indx}>{item[pro]}</td>))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <button onClick={() => ReactDOM.render(<App />, document.getElementById("app"))} className="btn btn-secondary mt-3">
+                        Voltar
+                    </button>
+                </div>
+            )
+            
+        }
+        function App() {
+            return <div class="container mt-5">
+                <Cabecalho/>
+                <TabelaBebidas/>
+                <button id="btFrutas" class="btn btn-secondary mt-3" onClick={() => ReactDOM.render(<TabelaFrutas />, document.getElementById("app"))}>Carregar frutas</button>
+            </div>
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById("app"))
+    </script>
+</body>
+</html>

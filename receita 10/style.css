@@ -1,0 +1,11 @@
+.custom-green-mint {
+    background-color: #215b24; /* Verde menta */
+}
+
+.custom-green-mint tbody tr:nth-child(odd) {
+    background-color: #388E3C; /* Verde floresta para as linhas ímpares */
+}
+
+.custom-green-mint tbody tr:nth-child(even) {
+    background-color: #A5D6A7; /* Verde pastel para as linhas pares */
+}

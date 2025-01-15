@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita 9 - React #0</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <div id="tabela"></div>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script>
+        ReactDOM.render(
+            React.createElement('h1', {id:'my-heading'},
+                React.createElement(
+                    'span',
+                    null,
+                    'React ',
+                    React.createElement('em', null, 'é muito'),
+                ),
+                ' massa!'
+            ),
+
+            document.getElementById('app')
+        );
+        ReactDOM.render(
+            React.createElement('table', {id:'table', border:'1'},
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('th', null, 'Titulo'),
+                    React.createElement('th', null, 'Genero'),
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Harry Potter'),
+                    React.createElement('td', null, 'Fantasia'),
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Divertidamente'),
+                    React.createElement('td', null, 'Animação'),
+                ),
+            ),
+
+            document.getElementById('tabela')
+        );
+    </script>
+</body>
+</html>

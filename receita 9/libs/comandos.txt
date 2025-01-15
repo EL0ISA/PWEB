@@ -1,0 +1,4 @@
+##Invoke-WebRequest -Uri https://unpkg.com/react-dom@17/umd/react-dom.development.js -OutFile libs/react-dom.js
+##Invoke-WebRequest -Uri https://unpkg.com/react@17/umd/react.development.js -OutFile libs/react.js
+##Invoke-WebRequest -Uri https://unpkg.com/babel-standalone/babel.min.js -OutFile libs/babel.js            
+   
