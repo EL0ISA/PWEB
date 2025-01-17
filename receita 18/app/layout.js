@@ -20,8 +20,7 @@ export default function RootLayout({ children }) {
               type="button"
               aria-controls="navbarNav"
               aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+              aria-label="Toggle navigation">
               <span className="block w-6 h-0.5 bg-gray-500"></span>
               <span className="block w-6 h-0.5 mt-1 bg-gray-500"></span>
             </button>
@@ -35,6 +34,11 @@ export default function RootLayout({ children }) {
                 <li className="nav-item">
                   <Link href="/movies" className="text-gray-600 hover:text-gray-900">
                     Movies
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/clientMovies1" className="text-gray-600 hover:text-gray-900">
+                    Client Movies
                   </Link>
                 </li>
               </ul>
